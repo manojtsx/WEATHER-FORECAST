@@ -45,7 +45,7 @@ const showWeatherBtn = document.querySelector("#show-weather");
 const resultDivider = document.querySelector("#warning-paragraph");
 
 // GET LONGITUDE AND LATITUDE FOR THE LOADING THE WEATHER
-const getWeather = async () => {
+const getWeather = () => {
   const country = countryList.value;
   const city = cityList.value;
   const selectedData = placeholderData.find(
@@ -57,7 +57,7 @@ const getWeather = async () => {
     resultDivider.innerText = "Loading...";
     const lon = selectedData.lon;
     const lat = selectedData.lat;
-    await getAPIData(lon, lat).then((response) => {
+    getAPIData(lon, lat).then((response) => {
       resultDivider.innerText = "";
       if (response) {
         response.dataseries.forEach((data) => {
